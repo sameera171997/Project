@@ -39,12 +39,6 @@
                   <div class="row">
 
                     <div class="col-sm-6 col-xs-12">
-                        <ul class="list-unstyled list-inline header-contact">
-                            
-                             <li> <i class="fa fa-envelope"></i> <a href="mailto:contact@sadaka.org">contact@coingive.org</a> </li>
-                            <li><a href="signinC.html">NOT A DONOR</a></li>
-                            
-                       </ul>
 
                           <!-- /.header-contact  -->
                       
@@ -59,7 +53,6 @@
                             <li> <a href="#" target="_blank"> <i class="fa fa-google"></i>  </a> </li>
                             <li> <a href="#" target="_blank"> <i class="fa fa-youtube"></i>  </a> </li>
                             <li> <a href="#" target="_blank"> <i class="fa fa fa-pinterest-p"></i>  </a> </li>
-                            
                        </ul> <!-- /.header-social  -->
                       
                     </div>
@@ -94,13 +87,11 @@
 
                     <li><a href="index.html">HOME</a></li>
                     <li><a class="is-active"  href="about.html">ABOUT</a></li>
-                    <li class="has-child"><a href="#">CAUSES</a>
+                    <li class="has-child"><a href="#">Project</a>
 
                       <ul class="submenu">
-                         <li class="submenu-item"><a href="causes.html">Causes list </a></li>
-                         <li class="submenu-item"><a href="causes-single.html">Single cause </a></li>
-                         <li class="submenu-item"><a href="causes-single.html">Single cause </a></li>
-                         <li class="submenu-item"><a href="causes-single.html">Single cause </a></li>
+                         <li class="submenu-item"><a href="causes.html">Project list </a></li>
+                            
                       </ul>
 
                     </li>
@@ -126,7 +117,7 @@
 
 		<div class="container zoomIn animated">
 			
-			<h1 class="page-title">SIGN IN TO DONATE<span class="title-under"></span></h1>
+			<h1 class="page-title">SIGN UP <span class="title-under"></span></h1>
 			<p class="page-description">
                 Take part in growing Community
 			</p>
@@ -140,28 +131,39 @@
 		<div class="container">
 
 		<!-- Start coding from here ----------------------------------------------------------------------------->
-          <!-- Where all the magic happens -->
-<!-- LOGIN FORM -->
-<div class="text-center" style="padding:50px 0">
-	
-	<!-- Main Form -->
-	<div class="login-form-1">
-				<form action="php/login.php" method="post" id="login-form" class="text-left">
+          
+      <div class="container">
+    <h1 class="well">Registration Form</h1>
+	<div class="col-lg-12 well">
+	<div class="row">
+        <form action="php/sinupCharity.php" method="post" id="login-form" class="text-left">
 		
 			<div class="login-form-main-message"></div>
 			<div class="main-login-form">
 				<div class="login-group">
 					<div class="form-group">
-						<label for="username"  class="sr-only">Email</label>
-						<input type="text" class="form-control" id="username" name="username" placeholder="username">
+						<label for="username"  class="sr-only">Name</label>
+						<input type="text" class="form-control" id="name" name="name" placeholder="Name">
 					</div>
+                    <div class="form-group">
+						<label for="username"  class="sr-only">Email</label>
+						<input type="text" class="form-control" id="email" name="email" placeholder="Email">
+					</div>
+                    
 					<div class="form-group">
 						<label for="password"  class="sr-only">Password</label>
-						<input type="password" class="form-control" id="password" name="password" placeholder="password">
+						<input type="password" class="form-control" id="password" name="Password" placeholder="Password">
 					</div>
-					
+					<div class="form-group">
+						<label for="username"  class="sr-only">Post Code</label>
+						<input type="text" class="form-control" id="postCode" name="postCode" placeholder="Post Code">
+					</div>
+                    <div class="form-group">
+						<label for="username"  class="sr-only">Wallet ID</label>
+						<input type="text" class="form-control" id="walletId" name="walletID" placeholder="Wallet ID">
+					</div>
 				</div>
-                <button name = "login"class="btn btn-lg btn-info">Login</button>
+                <button name = "login"class="btn btn-lg btn-info">Sign Up</button>
                   
                   
 
@@ -169,17 +171,15 @@
 			</div>
 			
 		</form>
-	</div>
-	<!-- end:Main Form -->
-</div>
-       
-         <div class="login-register">
-				            <a href="signup.html">Sign Up</a>
-				         </div>
+				
+				</div>
         <!-- End ------------------------------------------------------------------------------------------------------>
             
 
-			<div class="section-home about-us">
+	
+
+	</div>
+          		<div class="section-home about-us">
 
 
 			            <div class="row">
@@ -459,8 +459,6 @@
 		
 
 
-	</div>
-
 
     <footer class="main-footer">
 
@@ -480,7 +478,7 @@
                             <h4 class="footer-title">About us <span class="title-under"></span></h4>
 
                             <div class="footer-content">
-                              <p>
+                                <p>
                                     <strong>COINGIVE</strong>founded in 2018, CoinGive is the first Bitcoin 501(c)(3) nonprofit, giving it tax exemption status at the federal level in the United States. CoinGive has built a 
                                 </p> 
 
@@ -591,6 +589,7 @@
           
         
     </footer>
+
 
 
 
