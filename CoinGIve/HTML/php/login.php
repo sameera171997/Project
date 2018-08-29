@@ -11,11 +11,11 @@ $conn = new mysqli($servername, $username, $password, $db);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-} else {echo "sucess             ";}
+} else {echo "success             ";}
 
 
 
-$db_select = mysqli_select_db($conn,'CHARITY');
+$db_select = mysqli_select_db($conn,'coingive');
 $NAME = $_POST['username'];
 $PASSWORD = $_POST['password'];
 
@@ -37,7 +37,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 		
       if($count == 1) {
          
-         header("location: ../donor.html");
+         header("location: ../donorWelcome.html");
           
       }else {
          $error = "Your Login Name or Password is invalid";
