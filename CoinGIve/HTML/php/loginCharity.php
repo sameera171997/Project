@@ -26,7 +26,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       $donorusername = mysqli_real_escape_string($conn,$_POST['username']);
       $donorpassword = mysqli_real_escape_string($conn,$_POST['password']); 
       
-      $sql = "SELECT * FROM `DONOR` WHERE EMAIL = '$NAME' and PASSWORD = '$PASSWORD'";
+      $sql = "SELECT * FROM `CHARITY` WHERE EMAIL = '$NAME' and PASSWORD = '$PASSWORD'";
       $result = mysqli_query($conn,$sql);
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
      
@@ -50,5 +50,3 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $conn ->close();
 ?>
-
-
