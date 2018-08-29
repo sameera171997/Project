@@ -138,21 +138,21 @@
         <div class="panel-heading">Salvos</div>
         <div class="panel-body"><img src="assets/images/gallery/thumb/7610291856_931fb9f461_k.jpg" class="img-responsive" style="width:100%" 
     alt="Image"></div>
-        <div class="panel-footer">Donate now</div>
+        <a href="#" class="btn btn-lg btn-secondary hidden-xs bounceInUp animated" data-toggle="modal" data-target="#donateModal">DONATE NOW</a>
       </div>
     </div>
     <div class="col-sm-4"> 
       <div class="panel panel-primary">
-        <div class="panel-heading">Glen Mcgrath Foundation</div>
+        <div class="panel-heading">OP</div>
         <div class="panel-body"><img src="assets/images/gallery/children-82272_1280.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Donate now</div>
+        <a href="#" class="btn btn-lg btn-secondary hidden-xs bounceInUp animated" data-toggle="modal" data-target="#donateModal">DONATE NOW</a>
       </div>
     </div>
     <div class="col-sm-4"> 
       <div class="panel panel-primary">
-        <div class="panel-heading">Kamal FoundationL</div>
+        <div class="panel-heading">Kamal Foundation</div>
         <div class="panel-body"><img src="assets/images/gallery/thumb/old-books-436498_1280.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Donate now</div>
+        <a href="#" class="btn btn-lg btn-secondary hidden-xs bounceInUp animated" data-toggle="modal" data-target="#donateModal">DONATE NOW</a>
       </div>
     </div>
   </div>
@@ -447,6 +447,7 @@
 
 
 	</div>
+        
 
 
     <footer class="main-footer">
@@ -578,6 +579,91 @@
           
         
     </footer>
+ <!-- Donate Modal -->
+    <div class="modal fade" id="donateModal" tabindex="-1" role="dialog" aria-labelledby="donateModalLabel" aria-hidden="true">
+
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="donateModalLabel">DONATE NOW</h4>
+          </div>
+          <div class="modal-body">
+
+                <form action = "donate.php" method="post" class="form-donation">
+
+                        <h3 class="title-style-1 text-center">Thank you for your donation <span class="title-under"></span>  </h3>
+
+                        <div class="row">
+
+                            <div class="form-group col-md-12 ">
+                                <input type="text" class="form-control" id="amount" placeholder="AMOUNT(in Bitcoin)">
+                            </div>
+
+                        </div>
+
+
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" name="firstName" placeholder="First name*">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" name="lastName" placeholder="Last name*">
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" name="email" placeholder="Email*">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" name="phone" placeholder="Phone">
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="form-group col-md-12">
+                                <input type="text" class="form-control" name="address" placeholder="Address">
+                            </div>
+
+                        </div>
+
+
+                        <div class="row">
+
+                            <div class="form-group col-md-12">
+                                <textarea cols="30" rows="4" class="form-control" name="note" placeholder="Additional note"></textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="form-group col-md-12">
+                              
+								<a button type="submit" class="btn btn-primary pull-right"  HREF="php\donate.php" name="donateNow" >DONATE NOW!</button>
+                           </a> 
+							</div>
+
+                        </div>
+
+
+
+                       
+                    
+                </form>
+            
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- /.modal -->
 
 
 
