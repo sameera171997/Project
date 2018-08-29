@@ -37,7 +37,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 		
       if($count == 1) {
          
-         header("location: ../donor.html");
+         header("location: ../donorWelcome.html");
           
       }else {
          $error = "Your Login Name or Password is invalid";

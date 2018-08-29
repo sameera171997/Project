@@ -19,14 +19,14 @@ $EMAIL = $_POST['email'];
 $PASSWORD = $_POST['password'];
 $WALLET = $_POST['walletID'];
 
-$sql = "INSERT INTO `DONOR` (`D_ID`, `NAME`, `EMAIL`, `PASSWORD`, `D_WALLET`) VALUES ('3', '$NAME', '$EMAIL', '$PASSWORD', '$WALLET')";
+$sql = "INSERT INTO `DONOR` (`D_ID`, `NAME`, `EMAIL`, `PASSWORD`, `D_WALLET`) VALUES ('5', '$NAME', '$EMAIL', '$PASSWORD', '$WALLET')"
 if ($conn->query($sql) === TRUE) {
     echo "SINGED UP";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 $conn->close();
-header("refresh:2; url=http://localhost/git/CoinGive/HTML/DonorDashBoard.html")
+header("refresh:2; url=http://localhost/git/CoinGive/HTML/donorWelcome.html")
 
 
 ?>
