@@ -17,9 +17,9 @@ if ($conn->connect_error) {
 $NAME = $_POST['name'];
 $EMAIL = $_POST['email'];
 $PASSWORD = $_POST['password'];
-$WALLET = $_POST['walletID'];
+$WALLET = $_POST['walletId'];
 
-$sql = "INSERT INTO `DONOR` (`D_ID`, `NAME`, `EMAIL`, `PASSWORD`, `D_WALLET`) VALUES ('5', '$NAME', '$EMAIL', '$PASSWORD', '$WALLET')"
+$sql = "INSERT INTO `DONOR` (`D_ID`, `NAME`, `EMAIL`, `PASSWORD`, `D_WALLET`) VALUES ('6', '$NAME', '$EMAIL', '$PASSWORD', '$WALLET')";
 if ($conn->query($sql) === TRUE) {
     echo "SINGED UP";
 } else {
