@@ -158,7 +158,7 @@
             die("Connection failed: " . $conn->connect_error);
             } 
             
-            $sql = "SELECT NAME , Description  FROM `CHARITY` WHERE Description is not null;";
+            $sql = "SELECT NAME , Description  FROM `CHARITY` WHERE Description is not null order by NAME asc;";
             $result = mysqli_query($conn,$sql);
             
                                     
