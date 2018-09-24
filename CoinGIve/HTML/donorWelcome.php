@@ -1,7 +1,7 @@
 <?php
-   include('session.php');
+   include('php/login.php');
 ?>
-<!DOCTYPE html>
+
 <html class="no-js">
     <head>
         <meta charset="utf-8">
@@ -138,7 +138,7 @@
                   <ul class="nav navbar-nav">
 
                     <li><a href="#">MY details</a></li>
-                    <li><a href="donorReport.html">REPORT</a></li>
+                    <li><a href="php/charity.php">REPORT</a></li>
                     
                   </ul>
 
@@ -152,7 +152,8 @@
 	   <div class="#">
 			<div class="my-auto">
 				<h1 class="mb-0">Welcome
-					<span class="text-primary">Sameera</span>
+					<span class="text-primary"><?php echo json_encode($_SESSION["NAME"]) ?> </span>
+
 				</h1>
 			</div>
 	   	    <div class="container">
@@ -160,24 +161,26 @@
 					<div class="col-lg-12 well">
 					<div class="row">
 					<form>
-                        
 					<div class="col-sm-12">
 						
 							<div class="col-sm-6 form-group">
-								<label>My Wallet</label>
-								<type="text">1PqEA6DQRmEHFsBDSDW7j6gvQvh8w8B5Ly</type>
+								<label>My ID  ></label>
+								<?php echo json_encode($_SESSION["D_ID"]) ?> 
 							</div>
 							<div class="col-sm-6 form-group">
-								<label>Type of Currency</label>
-								<type="text">Bit Coin</type>
+								<label>Name  ></label>
+								<?php echo json_encode($_SESSION["NAME"]) ?> 
 							</div>
 											
 						<div class="form-group">
-							<label>Email</label>
-							<type="text">sameera17797@gmail.com</type>
+							<label>Email   ></label>
+							 <?php echo json_encode($_SESSION["EMAIL"]) ?>  
 						</div>	
 						
-							
+							<div class="col-sm-4 form-group">
+								<label>My Wallet   ></label>
+								 <?php echo json_encode($_SESSION["D_WALLET"]) ?> 
+							</div>	
 							
                         				
 					</div>

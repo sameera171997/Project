@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html class="no-js">
     <head>
@@ -77,7 +78,7 @@
 
                   </button>
                   
-                  <a class="navbar-brand" href="index.html"><img src="assets/images/sadaka.png" width = "45" height = "45" align="left"></a>
+                  <a class="navbar-brand" href="index.php"><img src="assets/images/sadaka.png" width = "45" height = "45" align="left"></a>
                   
                 </div>
 
@@ -85,7 +86,7 @@
 
                   <ul class="nav navbar-nav">
 
-                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="index.php">HOME</a></li>
                     <li><a class="is-active"  href="about.html">ABOUT</a></li>
                     <li class="has-child"><a href="#">Project</a>
 
@@ -127,33 +128,65 @@
 
 	<div class="main-container">
 
-		<div class="container">
-
-		<!-- Start coding from here ----------------------------------------------------------------------------->
+		<div class="container"
+             >
+            
+            <!---- Call Databse-->
+            
+            <h3> List of charities </h3>
+            
+           
+           <!-- <img src="https://chart.googleapis.com/chart?chs=225x225&chld=L|2&cht=qr&chl=bitcoin:bc1qjl8uwezzlech723lpnyuza0h2cdkvxvh54v3dn?amount=20" alt=""> -->
+            
           
 <div class="container">    
   <div class="row">
-    <div class="col-sm-4">
-      <div class="panel panel-primary">
-        <div class="panel-heading">Salvos</div>
-        <div class="panel-body"><img src="assets/images/gallery/thumb/7610291856_931fb9f461_k.jpg" class="img-responsive" style="width:100%" 
-    alt="Image"></div>
-        <a href="#" class="btn btn-lg btn-secondary hidden-xs bounceInUp animated" data-toggle="modal" data-target="#donateModal">DONATE NOW</a>
-      </div>
-    </div>
-    <div class="col-sm-4"> 
-      <div class="panel panel-primary">
-        <div class="panel-heading">OP</div>
-        <div class="panel-body"><img src="assets/images/gallery/children-82272_1280.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
-        <a href="#" class="btn btn-lg btn-secondary hidden-xs bounceInUp animated" data-toggle="modal" data-target="#donateModal">DONATE NOW</a>
-      </div>
-    </div>
-    <div class="col-sm-4"> 
-      <div class="panel panel-primary">
-        <div class="panel-heading">Kamal Foundation</div>
-        <div class="panel-body"><img src="assets/images/gallery/thumb/old-books-436498_1280.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
-        <a href="#" class="btn btn-lg btn-secondary hidden-xs bounceInUp animated" data-toggle="modal" data-target="#donateModal">DONATE NOW</a>
-      </div>
+    <table style = "border-spacing:5em ;"width="100%" border="0" cellspacing="10" cellpadding="10">
+           
+        
+        <?php
+            $servername = "localhost";
+            $username = "sameera";
+            $password = "fOS4X2vkXpWWcmp8";
+            $dbname = "coingive";
+
+
+            // Create connection
+            $conn = new mysqli($servername, $username, $password, $dbname);
+            // Check connection
+            if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+            } 
+            
+            $sql = "SELECT NAME , Description  FROM `CHARITY` WHERE Description is not null;";
+            $result = mysqli_query($conn,$sql);
+            
+                                    
+            if($result-> num_rows>0)
+	{
+                   
+		while($row = $result-> fetch_assoc())
+		{
+           $link = "index.php";
+			echo "<tr><td>".$row["NAME"]."</td><td>".$row["Description"]."</td><td>
+                   <a href = '$link'><button type='button' class='btn btn-info'>Donate Now</button></td></a></tr>
+                    <tr><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><tr>";
+            
+		}
+         echo "<br>" ;      
+		
+	}
+	else{
+		echo "0 result";
+	}
+	$conn -> close();
+            
+            
+        ?>
+        
+        
+            </table>
+      
     </div>
   </div>
 </div><br>

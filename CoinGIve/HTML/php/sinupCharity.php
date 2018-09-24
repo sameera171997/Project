@@ -16,18 +16,20 @@ if ($conn->connect_error) {
 
 $NAME = $_POST['name'];
 $EMAIL = $_POST['email'];
-$PASSWORD = $_POST['password'];
+$PASSWORD = $_POST['pass'];
 $POSTCODE = $_POST['postCode'];
 $WALLET = $_POST['walletID'];
 
-$sql = "INSERT INTO `CHARITY` (`C_ID`, `NAME`, `EMAIL`, `PASSWORD`, `POSTCODE`, `C_WALLET`) VALUES ('5', '$NAME', '$EMAIL', '$PASSWORD', '$POSTCODE', '$WALLET')";
+$sql = "INSERT INTO `CHARITY` (`C_ID`, `NAME`, `EMAIL`, `PASSWORD`, `POSTCODE`, `C_WALLET`) VALUES (NULL , '$NAME', '$EMAIL', '$PASSWORD', '$POSTCODE', '$WALLET');";
 if ($conn->query($sql) === TRUE) {
-    echo "SINGED UP";
+    echo "SIGNED UP <br> <br>";
+    echo "Redirecting.......";
+    header("refresh:2; url=http://localhost/git/CoinGive/HTML/charityDashBoard.php?id=$NAME");
+
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 $conn->close();
-header("refresh:2; url=http://localhost/git/CoinGive/HTML/charityDashBoard.html")
 
 
 ?>

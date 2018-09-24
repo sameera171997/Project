@@ -28,7 +28,7 @@
 
     </head>
 
-    <body>
+    <body onload = "onload()">
 
 
     <header class="main-header">
@@ -147,7 +147,7 @@
 
                   <h2 class="carousel-title bounceInDown animated slow">Because they need your help</h2>
                   <h4 class="carousel-subtitle bounceInUp animated slow ">Do not let them down</h4>
-                  <a href="DONATE.html" class="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow" >DONATE NOW</a>
+                  <a href="DONATE.php" class="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow" >DONATE NOW</a>
 
                 </div> <!-- /.carousel-caption -->
 
@@ -166,7 +166,7 @@
 
                   <h2 class="carousel-title bounceInDown animated slow">Together we can improve their lives</h2>
                   <h4 class="carousel-subtitle bounceInUp animated slow"> So let's do it !</h4>
-                  <a href="#" class="btn btn-lg btn-secondary hidden-xs bounceInUp animated" data-toggle="modal" data-target="#donateModal">DONATE NOW</a>
+                     <a href="DONATE.php" class="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow" >DONATE NOW</a>
 
                 </div> <!-- /.carousel-caption -->
 
@@ -187,7 +187,7 @@
 
                   <h2 class="carousel-title bounceInDown animated slow" >A penny is a lot of money, if you have not got a penny.</h2>
                   <h4 class="carousel-subtitle bounceInUp animated slow">You can make the diffrence !</h4>
-                  <a href="#" class="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow" data-toggle="modal" data-target="#donateModal">DONATE NOW</a>
+                     <a href="DONATE.php" class="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow" >DONATE NOW</a>
 
                 </div> <!-- /.carousel-caption -->
 
@@ -490,11 +490,7 @@
                             Accessible Arts is the peak arts and disability organisation across New South Wales providing leadership in arts + disability through information, advocacy and the facilitation of excellence in arts practice.
                         </div>
 
-                        <div class="btn-holder text-center">
-
-                          <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#donateModal"> DONATE NOW</a>
-                          
-                        </div>
+                    
 
                         
 
@@ -691,75 +687,6 @@
           </div>
           <div class="modal-body">
 
-                <form action = "" method="post" class="form-donation">
-
-                        <h3 class="title-style-1 text-center">Thank you for your donation <span class="title-under"></span>  </h3>
-
-                        <div class="row">
-
-                            <div class="form-group col-md-12 ">
-                                <input type="text" class="form-control" id="amount" placeholder="AMOUNT(in Bitcoin)">
-                            </div>
-
-                        </div>
-
-
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <input type="text" class="form-control" name="firstName" placeholder="First name*">
-                            </div>
-
-                            <div class="form-group col-md-6">
-                                <input type="text" class="form-control" name="lastName" placeholder="Last name*">
-                            </div>
-                        </div>
-
-
-                        <div class="row">
-
-                            <div class="form-group col-md-6">
-                                <input type="text" class="form-control" name="email" placeholder="Email*">
-                            </div>
-
-                            <div class="form-group col-md-6">
-                                <input type="text" class="form-control" name="phone" placeholder="Phone">
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-
-                            <div class="form-group col-md-12">
-                                <input type="text" class="form-control" name="address" placeholder="Address">
-                            </div>
-
-                        </div>
-
-
-                        <div class="row">
-
-                            <div class="form-group col-md-12">
-                                <textarea cols="30" rows="4" class="form-control" name="note" placeholder="Additional note"></textarea>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-
-                            <div class="form-group col-md-12">
-                              
-								<a button type="submit" class="btn btn-primary pull-right"  HREF="DONATE.HTML" name="donateNow" >DONATE NOW!</button>
-                           </a>
-							</div>
-
-                        </div>
-
-
-
-                       
-                    
-                </form>
-            
           </div>
         </div>
       </div>

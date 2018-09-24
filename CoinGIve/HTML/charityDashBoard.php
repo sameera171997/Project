@@ -1,6 +1,43 @@
+<?php include('php/loginCharity.php'); 
+session_start() ;
+$servername = "localhost";
+$username = "sameera";
+$passwords = "fOS4X2vkXpWWcmp8";
+$db = "coingive";
+
+
+// Create connection
+$conn = new mysqli($servername, $username, $passwords, $db);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} else {echo "sucess             ";}
+
+?>
+
 <!DOCTYPE html>
 <html class="no-js">
     <head>
+        <style>
+table {
+    border :1px solid;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border-style: groove;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #007acc;
+    color: white;
+}
+</style>
         <meta charset="utf-8">
         <title>About | Charity / Non-profit responsive Bootstrap HTML5 template</title>
         <meta name="description" content="">
@@ -129,13 +166,16 @@
                   
                  
                 </div>
-
+                  <h1>Wecome <?php 
+                       $name = $_GET['id'];
+                      echo $name;
+                         ?></h1>
                 <div id="navbar" class="navbar-collapse collapse pull-left">
 
                   <ul class="nav navbar-nav">
 
                     <li><a href="charityDashBoard.html">DASHBOARD</a></li>
-                    <li><a class="#configuration" href="php/chart.php">REPORT</a></li>
+                    <li><a class="#configuration" href="php/chart.php?id=<?php echo $_GET['id']; ?>">REPORT</a></li>
                     <li><a href="charityMail.html">MAIL</a></li>
                     
                   </ul>
@@ -149,7 +189,7 @@
 	   
 	    
 	    <section class="main">
-	        
+            
 	        <section class="tab-content">
 	            
 	           <section class="tab-pane active fade in content" id="dashboard">
@@ -161,7 +201,14 @@
 	                            <div class="panel-body">
                                     
                                    Donations Received<br/>
-                                    98.37 B
+                                    <?php
+                                    $sqlTotal = "select sum(payment.TOTAL_COIN) from PAYMENT,CHARITY where PAYMENT.C_ID = CHARITY.C_ID and CHARITY.name = '$name';";
+                                    $tot = mysqli_query($conn,$sqlTotal);
+                                    $coin = mysqli_fetch_assoc($tot);
+                                    $total = implode ("" ,$coin);
+                                    
+                                       echo $total ;
+                                    ?>
 	                                <br/><br/><br/>
 	                            </div>
 	                        </div>
@@ -169,10 +216,28 @@
 	                    
 	                    <div class="col-xs-6 col-sm-3">
 	                        <div class="panel panel-success">
-	                            <div class="panel-body">
-                                    Amount Spend<br/>
-                                    23.24 B
-	                                <br/><br/><br/>
+	                            <div class="panel-body" >
+                                    Current Value <br/>
+                                    <script>
+                                    var val = "<?php echo $total ?>";
+                                        
+                                    fetch('https://blockchain.info/ticker')
+                                    .then(res => res.json())
+                                    .then((out) => {
+                                
+                                    console.log('Output: ', out);
+                                    var total = "<br><br> $ "    
+                                    total += out.AUD.sell * val ;
+                                    total += " (prices in AUD)"   
+                                        $('#tot').html(total);
+                                    
+                                    } ).catch(err => console.error(err));
+                                    
+                                    </script>
+                                    <div id="tot"> </div>
+                                    
+	                           
+                                    
 	                            </div>
 	                        </div>
 	                    </div>
@@ -182,7 +247,7 @@
 	                            <div class="panel-body">
                                     Uncleared Donations
                                     
-	                                <br/> 2 B <br/><br/><br/>
+	                                <br/> <br/><br/><br/>
 	                            </div>
 	                        </div>
 	                    </div>
@@ -191,7 +256,7 @@
 	                        <div class="panel panel-warning">
 	                            <div class="panel-body">
                                     Total Voulunteers
-	                                <br/>27 <br/><br/><br/>
+	                                <br/> <br/><br/><br/>
 	                            </div>
 	                        </div>
 	                    </div>
@@ -199,10 +264,36 @@
 	                   <div class="col-xs-12 col-sm-9">
 	                       <div class="panel panel-default">
 	                           <div class="panel-heading">
-	                            Information on the website
+	                            Individual Donations
 	                           </div>
 	                           <div class="panel-body">
-	                               This layout uses tabs to demonstrate what you could do with it. It probably makes more sense to use individual pages/templates in a production app.
+	                               <table>
+	<tr>
+	  <th>Donor</th>
+	  <th>Amount</th>
+	  
+	</tr>
+	<?php
+	
+	$name = $_GET['id'];
+	$sql = "SELECT donor.Name as Name , payment.TOTAL_COIN as Amount FROM donor , payment , charity where donor.D_ID = payment.D_ID and charity.C_ID = payment.C_ID and charity.Name = '$name';"; 
+	$result = mysqli_query($conn,$sql);
+	
+	if($result-> num_rows>0)
+	{
+		while($row = $result-> fetch_assoc())
+		{
+			echo "<tr><td>".$row["Name"]."</td><td>".$row["Amount"]."</td></tr>";
+		}
+		
+	}
+	else{
+		echo "0 result";
+	}
+	$conn -> close();
+	
+	?>
+	</table>
 	                               <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 	                           </div>
 	                       </div>
@@ -211,10 +302,16 @@
 	                   <div class="col-xs-12 col-sm-3">
 	                       <div class="panel panel-default">
 	                           <div class="panel-heading">
-	                               Updates
+	                               Please send  description to receive donation(Can alter later)
 	                           </div>
 	                           <div class="panel-body">
-	                               Donation received 23.47 B
+	                               <form action = "php/description.php?id=<?php $name = $_GET['id']; echo $name; ?>" method="post" id="descriptionForm">
+                                       
+                                   <textarea rows="4" cols="30" id="description" name="comment"></textarea>
+                                       <br><br>
+                                       <button name = "send">Update</button>
+                
+                                   </form>
 	                           </div>
 	                       </div>
 	                       
