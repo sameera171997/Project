@@ -463,7 +463,7 @@
 
                         <div class="btn-holder text-center">
 
-                          <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#donateModal"> DONATE NOW</a>
+                          <a href="#" class="btn btn-primary  " data-toggle="modal" data-target="#donateModal"> DONATE NOW</a>
                           
                         </div>
 
