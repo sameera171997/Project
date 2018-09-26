@@ -387,7 +387,7 @@
 
                             <div class="form-group col-md-12">
                               
-								<a button type="submit" class="btn btn-primary pull-right"  HREF="DONATE.HTML" name="donateNow" >DONATE NOW!</button>
+								<a button type="submit" class="btn btn-primary pull-right"  HREF="DONATE.HTML" name="donateNow" >DONATE NOW!
                            </a>
 							</div>
 
