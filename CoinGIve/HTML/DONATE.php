@@ -629,8 +629,8 @@
               function my(x) {
                             
                              var y = x;
-                                 
-                              //console.log(y);
+                                 document.getElementById('image').style.visibility='hidden';
+                              
                                localStorage.setItem(walletId , y);
                                
                                 
@@ -668,18 +668,12 @@
 							</div >
                             
                         </div >
-                        <div  class="row" style="text-align: center">
+                </form>
+              <div  style="text-align: center">
                     
                     <img id="image" src = "https://chart.googleapis.com" style="visibility:hidden ; text-align: center" > 
 
                     </div>
-
-
-                 
-                       
-                    
-                </form>
-              <div id="image"></div>
             
           </div>
         </div>
