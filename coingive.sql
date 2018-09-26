@@ -2,7 +2,7 @@
 -- version 4.8.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
+-- Host : localhost
 -- Generation Time: Sep 26, 2018 at 01:43 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 5.6.36
