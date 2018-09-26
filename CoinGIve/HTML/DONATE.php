@@ -6,7 +6,9 @@
         <title>About | Charity / Non-profit responsive Bootstrap HTML5 template</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        
+        <!-- Script -->
+        
         <!-- Fonts -->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Dosis:400,700' rel='stylesheet' type='text/css'>
@@ -22,8 +24,7 @@
         
         <!-- Modernizr -->
         <script src="assets/js/modernizr-2.6.2.min.js"></script>
-
-
+       
     </head>
     <body>
     <!-- NAVBAR
@@ -158,18 +159,19 @@
             die("Connection failed: " . $conn->connect_error);
             } 
             
-            $sql = "SELECT NAME , Description  FROM `CHARITY` WHERE Description is not null order by NAME asc;";
+            $sql = "SELECT NAME , Description, C_WALLET  FROM `CHARITY` WHERE Description is not null order by NAME asc;";
             $result = mysqli_query($conn,$sql);
             
                                     
             if($result-> num_rows>0)
 	{
-                   
+                  
 		while($row = $result-> fetch_assoc())
 		{
-           $link = "index.php";
+            $val = $row["C_WALLET"];
+          
 			echo "<tr><td>".$row["NAME"]."</td><td>".$row["Description"]."</td><td>
-                   <a href = '$link'><button type='button' class='btn btn-info'>Donate Now</button></td></a></tr>
+                   <a href = '#' onclick = my('$val') class='btn btn-lg btn-secondary ' data-toggle='modal'  data-target='#donateModal'>Donate Now</td></a></tr>
                     <tr><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><tr>";
             
 		}
@@ -479,7 +481,6 @@
 		
 
 
-	</div>
         
 
 
@@ -622,10 +623,33 @@
             <h4 class="modal-title" id="donateModalLabel">DONATE NOW</h4>
           </div>
           <div class="modal-body">
-
+              <script>
+                 var walletId ; 
+                  
+              function my(x) {
+                            
+                             var y = x;
+                                 
+                              //console.log(y);
+                               localStorage.setItem(walletId , y);
+                               
+                                
+                            };
+                        
+              function generate()
+                  {
+                      var lol = document.getElementById('amount').value;
+                      var a = localStorage.getItem(walletId);
+                      console.log(a , lol);
+                      //var i = "https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl=bitcoin:"+a+"?&amount="+lol;
+                      document.getElementById('image').style.visibility='visible';
+                      document.getElementById('image').src="https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl=bitcoin:"+a+"?&amount="+lol+"";
+                  };
+              
+              </script>
                 <form action = "donate.php" method="post" class="form-donation">
 
-                        <h3 class="title-style-1 text-center">Thank you for your donation <span class="title-under"></span>  </h3>
+                        <h3 class="title-style-1 text-center">Making a better Future <span class="title-under"></span>  </h3>
 
                         <div class="row">
 
@@ -635,62 +659,27 @@
 
                         </div>
 
-
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <input type="text" class="form-control" name="firstName" placeholder="First name*">
-                            </div>
-
-                            <div class="form-group col-md-6">
-                                <input type="text" class="form-control" name="lastName" placeholder="Last name*">
-                            </div>
-                        </div>
-
-
-                        <div class="row">
-
-                            <div class="form-group col-md-6">
-                                <input type="text" class="form-control" name="email" placeholder="Email*">
-                            </div>
-
-                            <div class="form-group col-md-6">
-                                <input type="text" class="form-control" name="phone" placeholder="Phone">
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-
-                            <div class="form-group col-md-12">
-                                <input type="text" class="form-control" name="address" placeholder="Address">
-                            </div>
-
-                        </div>
-
-
-                        <div class="row">
-
-                            <div class="form-group col-md-12">
-                                <textarea cols="30" rows="4" class="form-control" name="note" placeholder="Additional note"></textarea>
-                            </div>
-
-                        </div>
-
                         <div class="row">
 
                             <div class="form-group col-md-12">
                               
-								<a button type="submit" class="btn btn-primary pull-right"  HREF="php\donate.php" name="donateNow" >DONATE NOW!</button>
+								<a button type="submit"  onclick = generate() class="btn btn-primary pull-right" name="Generate QR Code" >DONATE NOW!
                            </a> 
-							</div>
+							</div >
+                            
+                        </div >
+                        <div  class="row" style="text-align: center">
+                    
+                    <img id="image" src = "https://chart.googleapis.com" style="visibility:hidden ; text-align: center" > 
 
-                        </div>
+                    </div>
 
 
-
+                 
                        
                     
                 </form>
+              <div id="image"></div>
             
           </div>
         </div>
