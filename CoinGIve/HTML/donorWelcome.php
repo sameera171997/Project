@@ -1,5 +1,5 @@
 <?php
-   include('php/login.php');
+   include('login.php');
 ?>
 
 <html class="no-js">

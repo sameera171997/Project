@@ -28,13 +28,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       $result = mysqli_query($conn,$sql);
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 	  $yes1 = mysqli_query($conn,"SELECT NAME FROM `DONOR` WHERE EMAIL = '$donorusername' and PASSWORD = '$donorpassword'");
-	  $name=mysqli_fetch_assoc($yes1);
+	  $nameA=mysqli_fetch_assoc($yes1);
+	  $name= implode("",$nameA);
 	  $yes2 = mysqli_query($conn,"SELECT D_ID FROM `DONOR` WHERE EMAIL = '$donorusername' and PASSWORD = '$donorpassword'");
-	  $d_id=mysqli_fetch_assoc($yes2);
+	  $d_idA = mysqli_fetch_assoc($yes2);
+	  $d_id = implode("",$d_idA);
 	  $yes3 = mysqli_query($conn,"SELECT EMAIL FROM `DONOR` WHERE EMAIL = '$donorusername' and PASSWORD = '$donorpassword'");
-	  $email=mysqli_fetch_assoc($yes3);
+	  $emailA=mysqli_fetch_assoc($yes3);
+	  $email = implode("",$emailA);
 	  $yes4 = mysqli_query($conn,"SELECT D_WALLET FROM `DONOR` WHERE EMAIL = '$donorusername' and PASSWORD = '$donorpassword'");
-	  $d_wallet=mysqli_fetch_assoc($yes4);
+	  $d_walletA=mysqli_fetch_assoc($yes4);
+	  $d_wallet = implode("",$d_walletA);
       $_SESSION["NAME"] =$name;
 	  $_SESSION["D_ID"] = $d_id;
       $_SESSION["EMAIL"] = $email;
@@ -58,7 +62,5 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $conn ->close();
 ?>
-
-
 
 
