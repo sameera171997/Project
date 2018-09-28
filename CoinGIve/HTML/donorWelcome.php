@@ -157,7 +157,7 @@
 				</h1>
 			</div>
 	   	    <div class="container">
-					<h1 class="well">My Details</h1>
+					<h1 class="well">My Details </h1>
 					<div class="col-lg-12 well">
 					<div class="row">
 					<form>
