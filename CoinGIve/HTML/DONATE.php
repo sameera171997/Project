@@ -137,13 +137,13 @@
             <h3> List of charities </h3>
             
            
-           <!-- <img src="https://chart.googleapis.com/chart?chs=225x225&chld=L|2&cht=qr&chl=bitcoin:bc1qjl8uwezzlech723lpnyuza0h2cdkvxvh54v3dn?amount=20" alt=""> -->
+          
             
           
 <div class="container">    
   <div class="row">
     <table style = "border-spacing:5em ;"width="100%" border="0" cellspacing="10" cellpadding="10">
-           
+          
         
         <?php
             $servername = "localhost";
@@ -159,9 +159,9 @@
             die("Connection failed: " . $conn->connect_error);
             } 
             
-            $sql = "SELECT NAME , Description, C_WALLET  FROM `CHARITY` WHERE Description is not null order by NAME asc;";
+            $sql = "SELECT NAME , Description, C_WALLET  FROM `CHARITY` where Description is not null;";
             $result = mysqli_query($conn,$sql);
-            
+        
                                     
             if($result-> num_rows>0)
 	{
@@ -169,14 +169,14 @@
 		while($row = $result-> fetch_assoc())
 		{
             $val = $row["C_WALLET"];
-          
-			echo "<tr><td>".$row["NAME"]."</td><td>".$row["Description"]."</td><td>
+            
+    
+			echo "<tr><td>".$row["NAME"]."</td><td><p>".$row["Description"]."</p></td><td>
                    <a href = '#' onclick = my('$val') class='btn btn-lg btn-secondary ' data-toggle='modal'  data-target='#donateModal'>Donate Now</td></a></tr>
                     <tr><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td><tr>";
             
 		}
-         echo "<br>" ;      
-		
+         
 	}
 	else{
 		echo "0 result";
@@ -641,7 +641,7 @@
                       var lol = document.getElementById('amount').value;
                       var a = localStorage.getItem(walletId);
                       console.log(a , lol);
-                      //var i = "https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl=bitcoin:"+a+"?&amount="+lol;
+                      var i = "https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl=bitcoin:"+a+"?&amount="+lol;
                       document.getElementById('image').style.visibility='visible';
                       document.getElementById('image').src="https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl=bitcoin:"+a+"?&amount="+lol+"";
                   };

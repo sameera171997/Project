@@ -320,8 +320,7 @@ th {
 	                               COIN GIVE
 	                           </div>
 	                           <div class="panel-body">
-                                   Start a <a target="_blank">campain</a><br>
-	                               Designed by Coin Give
+                                   Start a  <a href = '#'  data-toggle='modal'  data-target='#donateModal'>Campaign</a> now.
 	                           </div>
 	                       </div>
 	                   </div>
@@ -582,7 +581,53 @@ th {
           
         
     </footer>
+<!-- Donate Modal -->
+    <div class="modal fade" id="donateModal" tabindex="-1" role="dialog" aria-labelledby="donateModalLabel" aria-hidden="true">
 
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="donateModalLabel">START A CAMPAIGN </h4>
+          </div>
+          <div class="modal-body">
+              
+                <form action = "php/campaign.php?id=<?php $name = $_GET['id']; echo $name; ?>" method="post" id="campaignForm">
+
+                        <h5 class="title-style-1 text-center">Create a campaign to achive your charity goals  <span class="title-under"></span>  </h5>
+
+                        <div class="row">
+                            <div class="form-group col-md-12 ">
+                                <input type="text" class="form-control" id="name" placeholder="Name">
+                            </div>
+
+                            <div class="form-group col-md-12 ">
+                                <input type="text" class="form-control" id="coin" placeholder=" Target Coins(in Bitcoin)">
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="form-group col-md-12">
+                              
+								<a button type="submit"   class="btn btn-primary pull-right" name="Generate QR Code" >Start Now
+                           </a> 
+							</div >
+                            
+                        </div >
+                </form>
+              <div  style="text-align: center">
+                    
+                    <img id="image" src = "https://chart.googleapis.com" style="visibility:hidden ; text-align: center" > 
+
+                    </div>
+            
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- /.modal -->
 
 
 

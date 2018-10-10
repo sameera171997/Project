@@ -93,19 +93,11 @@
 
                   <ul class="nav navbar-nav">
                     
-                    <li><a class="is-active" href="index.html">HOME</a></li>
-                    <li><a href="about.html">ABOUT</a></li>
-                    <li class="has-child"><a href="#">PROJECTS</a>
-
-                      <ul class="submenu">
-                         <li class="submenu-item"><a href="causes.html">Project list </a></li>
-                     
-                      </ul>
-
-                    </li>
-                    <li><a href="gallery.html">GALLERY</a></li>
+                    <li><a class="is-active" href="index.php">HOME</a></li>
+                    <li ><a href="#">PROJECTS</a> </li>
+                       <li><a href="about.html">ABOUT</a></li>
                     <li><a href="contact.html">CONTACT</a></li>
-                      <li><a href="track.html">TRACK</a></li>
+                    
                     
 
                   </ul>
